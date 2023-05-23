@@ -1,5 +1,12 @@
+<!--
+ * @Author: Tsz
+ * @Date: 2023-05-23 20:43:48
+-->
 <template>
-  <el-button type="primary">Primary</el-button>
+  <div>
+    <TestAuto></TestAuto>
+    <P_a></P_a>
+  </div>
 </template>
 <script lang="ts" setup>
 </script>

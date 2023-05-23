@@ -1,3 +1,7 @@
+/*
+ * @Author: Tsz
+ * @Date: 2023-05-23 20:43:48
+ */
 import { createApp } from 'vue'
 import App from './App.vue'
 // router
@@ -8,7 +12,6 @@ import { createPinia } from 'pinia'
 const pinia = createPinia()
 import 'xe-utils'
 import 'vxe-table/lib/style.css'
-import './style.css'
 import SvgIcon from "@/components/SvgIcon/index.vue"
 import 'virtual:svg-icons-register'
 import  piniaPersist from 'pinia-plugin-persist'
