@@ -1,3 +1,7 @@
+/*
+ * @Author: Tsz
+ * @Date: 2023-05-23 20:43:48
+ */
 import { createApp } from 'vue'
 import App from './App.vue'
 // router

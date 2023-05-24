@@ -10,9 +10,10 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     ElButton: typeof import('element-plus/es')['ElButton']
-    HelloWorld: typeof import('./components/HelloWorld.vue')['default']
+    P_a: typeof import('./components/p_a/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SvgIcon: typeof import('./components/SvgIcon/index.vue')['default']
+    TestAuto: typeof import('./components/TestAuto/index.vue')['default']
   }
 }

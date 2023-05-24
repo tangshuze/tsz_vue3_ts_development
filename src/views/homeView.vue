@@ -1,9 +1,11 @@
+<!--
+ * @Author: Tsz
+ * @Date: 2023-05-23 20:43:48
+-->
 <template>
   <div>
-    <h1 class="text-9xl font-bold underline">
-    Hello world!
-  </h1>
-    <el-button type="primary">Primary</el-button>
+    <TestAuto></TestAuto>
+    <P_a></P_a>
   </div>
 </template>
 <script lang="ts" setup>
