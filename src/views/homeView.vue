@@ -1,9 +1,14 @@
 <template>
-  <el-button type="primary">Primary</el-button>
+  <div>
+    <h1 class="text-9xl font-bold underline">
+    Hello world!
+  </h1>
+    <el-button type="primary">Primary</el-button>
+  </div>
 </template>
 <script lang="ts" setup>
 </script>
-<style>
+<style lang="scss">
 .card-header {
   display: flex;
   justify-content: space-between;

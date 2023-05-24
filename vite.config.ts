@@ -54,7 +54,7 @@ export default defineConfig(({ command, mode }) => {
       host: '0.0.0.0',
       proxy: {
         '/api': { // 匹配请求路径，
-          target: '你要代理的地址', // 代理的目标地址
+          target: '', // 代理的目标地址
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, '')
         }
