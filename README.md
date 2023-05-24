@@ -89,7 +89,13 @@ EventBus.addEventListener("test", (a, b) => {
   console.log(a, b);
 });
 ```
-
+# cookie
+```js
+cookiesStorage {
+  set(key:string,value:any,expires:number=3)//默认值为3天
+  get(key:string)
+}
+```
 # storage
 
 useage
@@ -110,6 +116,8 @@ sessionStorage.remove(key:string)
 ```
 
 # tailwind css
+
+使用的话建议下载一个vs code插件 `Tailwind CSS intelliSense`
 
 配置`.vue`文件生效
 ```js
