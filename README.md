@@ -73,6 +73,8 @@ EventBus.addEventListener('test', (a, b) => {
 ```
 
 # storage
+
+useage
 storage:
 ```js
 storage.get(key:string)
@@ -85,4 +87,8 @@ sessionStorage.get(key:string)
 sessionStorage.set(key:string,value:any)
 sessionStorage.remove(key:string)
 ```
+# tailwindcss
 
+开箱即用
+
+# 
