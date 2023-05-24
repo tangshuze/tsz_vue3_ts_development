@@ -4,11 +4,13 @@
 -->
 <template>
   <div>
-    <TestAuto></TestAuto>
-    <P_a></P_a>
+    <Editor></Editor>
   </div>
 </template>
 <script lang="ts" setup>
+// import {useTestStore} from '@/store/index'
+// import DayUtils from '@/utils/dayjs'
+// const counterStore = useTestStore()
 </script>
 <style lang="scss">
 .card-header {

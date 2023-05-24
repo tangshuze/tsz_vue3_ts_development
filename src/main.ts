@@ -3,7 +3,6 @@
  * @Date: 2023-05-23 20:43:48
  */
 import { createApp } from 'vue'
-import App from './App.vue'
 // router
 import router from "./router/index"
 
@@ -11,6 +10,7 @@ import  '@/styles/style.scss';
 import  '@/styles/TailWindCss/index.css';
 // pinia
 import { createPinia } from 'pinia'
+import App from './App.vue'
 const pinia = createPinia()
 import 'xe-utils'
 import 'vxe-table/lib/style.css'
@@ -22,6 +22,8 @@ import 'virtual:svg-icons-register'
 // pinia.use(piniaPersist)
 
 const app = createApp(App as any)
+
+// app.config.globalProperties//全局属性
 
 //routes 
 app.use(router)

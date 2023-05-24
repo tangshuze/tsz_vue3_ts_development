@@ -66,7 +66,7 @@ const getConfig = (config?: AxiosRequestConfig): AxiosRequestConfig => {
 /**
  * 自定义封装的Axios 类
  */
-class EnclosureHttp {
+ export default class EnclosureHttp {
   constructor() {
     this.httpInterceptorsRequest();
     this.httpInterceptorsResponse();
@@ -88,7 +88,7 @@ class EnclosureHttp {
         /*
          * 在请求发出去之前作出一下处理
          * */
-        // console.log("config=>:", config);
+        console.log("config=>:", config);
         return config;
       },
       (err) => {
@@ -217,4 +217,3 @@ class EnclosureHttp {
   };
 }
  
-export default EnclosureHttp;

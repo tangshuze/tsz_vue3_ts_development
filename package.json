@@ -11,6 +11,7 @@
   "dependencies": {
     "@ant-design/icons-vue": "^6.1.0",
     "@vueuse/core": "^10.1.2",
+    "@wangeditor/editor": "^5.1.23",
     "ant-design-vue": "^3.2.20",
     "axios": "^1.4.0",
     "dayjs": "^1.11.7",
@@ -25,7 +26,9 @@
     "vue": "^3.2.47",
     "vue-router": "^4.2.1",
     "vxe-table": "^4.3.14",
-    "xe-utils": "^3.5.7"
+    "wangeditor": "^4.7.15",
+    "xe-utils": "^3.5.7",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@types/js-cookie": "^3.0.3",
