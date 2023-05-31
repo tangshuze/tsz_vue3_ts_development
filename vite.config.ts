@@ -4,7 +4,8 @@ import path from "path";
 import AutoImport from "unplugin-auto-import/vite"
 import Components from 'unplugin-vue-components/vite'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
-import { ElementPlusResolver,AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
+import { ElementPlusResolver, AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
+import { viteMockServe } from "vite-plugin-mock"
 
 import vueJsx from '@vitejs/plugin-vue-jsx'
 
@@ -14,23 +15,25 @@ import IconsResolver from 'unplugin-icons/resolver';
 export default defineConfig(({ command, mode }) => {
   loadEnv(mode, process.cwd());
   return {
+    envPrefix: 'VITE_',
+    envDir:'env',
     plugins: [
       vue(),
       AutoImport({
         dts: "src/auto-import.d.ts",
         resolvers: [ElementPlusResolver(), IconsResolver({
           prefix: 'Icon'
-        }),AntDesignVueResolver()],
+        }), AntDesignVueResolver()],
         eslintrc: { enabled: true },
       }),
       Components({
         dts: "src/components.d.ts",
         resolvers: [ElementPlusResolver(),
-          IconsResolver({
+        IconsResolver({
           enabledCollections: ['ep']
-        }),AntDesignVueResolver({
+        }), AntDesignVueResolver({
           importStyle: true,
-           resolveIcons: true
+          resolveIcons: true
         })
         ],
       }),
@@ -39,24 +42,47 @@ export default defineConfig(({ command, mode }) => {
         symbolId: 'icon-[name]'
       }),
       Icons({
-        autoInstall:true
+        autoInstall: true
       }),
-      vueJsx()
+      vueJsx(),
+      viteMockServe({
+        // supportTs: false,
+        logger: false,
+        mockPath: "src/mock/"
+      }),
     ],
     resolve: {
       alias: {
-        "@": path.resolve(__dirname, "./src")
+        "@": path.resolve(__dirname, "./src"),
+        '~': path.resolve(__dirname, './'),
       }
     },
+    define: {
+      'process.env': {}
+    },
     server: {
-      host: '0.0.0.0',
-      proxy: {
-        '/api': { // 匹配请求路径，
-          target: '', // 代理的目标地址
-          changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api/, '')
-        }
-      }
+      open: '/',
+      host: '0.0.0.0',   //本地地址：localhost或者其他
+      https: false,
+      // proxy: {           //代理
+      //   '/test': {
+      //     target: process.env.VITE_PROXY_URL,    //请求的url，例后端给的地址
+      //     changeOrigin: true,        //当进行代理时，Host 头部的源默认会保持原状；你可以设置 changeOrigin 为 true 来覆盖这种行为；变成target对应得地址
+      //     secure: false,             // 关闭SSL证书校验
+      //     rewrite: path => {         //重定地址，比如：把以/aaa开头的地址换成''
+      //       return path.replace(/^\/aaaa/, '');
+      //     },
+      //   },
+      // },
+    },
+    build: {
+      minify: "terser", // 必须开启：使用 terserOptions 才有效果
+      terserOptions: {
+        compress: {
+          drop_console: true,
+          drop_debugger: true,
+        },
+      },
     }
   }
 })

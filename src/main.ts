@@ -16,16 +16,13 @@ import 'xe-utils'
 import 'vxe-table/lib/style.css'
 import SvgIcon from "@/components/SvgIcon/index.vue"
 import 'virtual:svg-icons-register'
-import {mockXHR} from '../mockjs/index'
 // import  piniaPersist from 'pinia-plugin-persist'//这个玩意儿烦得很
-
-
 // pinia.use(piniaPersist)
 
-
-if(process.env.NODE_ENV === 'development'){
+console.log(import.meta.env);
+if(import.meta.env.VITE_USER_NODE_ENV === 'mock'){
   console.log('进入mock了');
-  mockXHR()
+  // mockRequest()
 }
 const app = createApp(App as any)
 

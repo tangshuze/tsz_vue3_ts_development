@@ -1,33 +1,16 @@
-<!--
- * @Author: Tsz
- * @Date: 2023-05-23 20:43:48
--->
 <template>
   <div>
-    <Editor></Editor>
+    <el-button @click="test">test</el-button>
   </div>
 </template>
-<script lang="ts" setup>
-// import {useTestStore} from '@/store/index'
-// import DayUtils from '@/utils/dayjs'
-// const counterStore = useTestStore()
+
+<script lang='ts' setup>
+import http from '@/utils/http/request';
+function test() {
+  http.get('/api/test').then(res=>{
+    console.log('res:',res);
+  })
+}
 </script>
-<style lang="scss">
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.text {
-  font-size: 14px;
-}
-
-.item {
-  margin-bottom: 18px;
-}
-
-.box-card {
-  width: 480px;
-}
+<style scoped>
 </style>
