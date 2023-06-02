@@ -5,13 +5,6 @@
  * @LastEditTime: 2023-05-24 15:17:34
  * @FilePath: \vite+vue3+ts\src\components\editor\init.ts
  */
-/*
- * @Description: 
- * @Date: 2023-05-24 15:11:19
- * @Autor: tangshuze
- * @LastEditTime: 2023-05-24 15:13:11
- * @FilePath: \vite+vue3+ts\src\components\editor\init.ts
- */
 import Editor from 'wangeditor'
 import AnimationButton from './AnimationButton'
 

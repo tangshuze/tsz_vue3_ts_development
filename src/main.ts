@@ -16,6 +16,7 @@ import 'xe-utils'
 import 'vxe-table/lib/style.css'
 import SvgIcon from "@/components/SvgIcon/index.vue"
 import 'virtual:svg-icons-register'
+import 'animate.css';
 // import  piniaPersist from 'pinia-plugin-persist'//这个玩意儿烦得很
 // pinia.use(piniaPersist)
 

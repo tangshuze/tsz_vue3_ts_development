@@ -2,7 +2,8 @@
   "compilerOptions": {
     "types": [
       "vite/client",
-      "node"
+      "node",
+      "element-plus/global"
     ],
     "target": "ES2020",
     "useDefineForClassFields": true,
@@ -14,7 +15,7 @@
     ],
     "skipLibCheck": true,
     /* Bundler mode */
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "allowImportingTsExtensions": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -41,7 +42,7 @@
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "Element-puls.d.ts",
+    "Element-plus.d.ts",
     "env.d.ts",
     "src/mock/**/*.ts"],
   "references": [

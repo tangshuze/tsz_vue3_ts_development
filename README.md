@@ -202,6 +202,8 @@ watchEffect(()=>{
 
 # vueuse@10
 
+import { xxx } from '@vueuse/core';
+
 和lodash互相补充吧
 
 useage
@@ -226,3 +228,6 @@ export default {
 }
 ```
 
+# Animate.css
+测试了一下，暂时没有和tailwind起冲突，到时候起冲突了再说把
+class前缀animate__animated animateName

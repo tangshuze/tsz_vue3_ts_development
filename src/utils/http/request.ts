@@ -1,6 +1,4 @@
-import axios, { AxiosInstance, AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
-import  { ElMessage, ElLoading, ElMessageBox } from "element-plus";
-
+import axios, { AxiosInstance, AxiosError, AxiosRequestConfig, AxiosResponse } from "axios"
 // response interface { code, msg, success }
 // 不含 data
 interface Result {
@@ -39,6 +37,7 @@ class Request {
     /**
      * 请求拦截器
      * request -> { 请求拦截器 } -> server
+     * 使用时修改对应令牌匹配字段
      */
     this.service.interceptors.request.use(
       (config: any) => {
@@ -60,6 +59,7 @@ class Request {
     /**
      * 响应拦截器
      * response -> { 响应拦截器 } -> client
+     * 响应体字段应进行更行
      */
     this.service.interceptors.response.use(
       (response: AxiosResponse) => {

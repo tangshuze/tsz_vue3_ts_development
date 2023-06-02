@@ -20,6 +20,7 @@ export default defineConfig(({ command, mode }) => {
     plugins: [
       vue(),
       AutoImport({
+        imports:["vue"],
         dts: "src/auto-import.d.ts",
         resolvers: [ElementPlusResolver(), IconsResolver({
           prefix: 'Icon'
@@ -45,11 +46,11 @@ export default defineConfig(({ command, mode }) => {
         autoInstall: true
       }),
       vueJsx(),
-      viteMockServe({
-        // supportTs: false,
-        logger: false,
-        mockPath: "src/mock/"
-      }),
+      // viteMockServe({
+      //   // supportTs: false,
+      //   logger: false,
+      //   mockPath: "src/mock/"
+      // }),
     ],
     resolve: {
       alias: {
