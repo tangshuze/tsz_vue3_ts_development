@@ -9,7 +9,9 @@ import Editor from 'wangeditor'
 import AnimationButton from './AnimationButton'
 
 type EmitUpdate = (event: 'update:modelValue', value: string) => void
-
+interface EditorConfig {
+  [key: string]: string | number | undefined | null | void
+}
 export const initEditor = (
   container: HTMLDivElement,
   { emit, props }: { emit: EmitUpdate; props: Readonly<{ menus?: string[]; modelValue?: string; excludeMenu?: string[]; config?: any }> },
@@ -81,7 +83,6 @@ export const initEditor = (
     'rgb(225,225,225)',
   ]
   editor.config.pasteIgnoreImg = true
-
   if (props.config) {
     for (const key in props.config) {
       editor.config[key] = props.config[key]

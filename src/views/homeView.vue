@@ -5,12 +5,18 @@
       <div class="">副标题</div>
     </header>
 
-      <section>内容</section>
+    <section v-vMove="123">内容</section>
   </div>
+  <button v-move="123123">test</button>
 </template>
 
 <script lang='ts' setup>
-const color = ref('123');
+import type { Directive } from 'vue'
+const color: Ref<string> = ref('123')
+const vMove: Directive = (el, binding) => {
+  console.log('el:', el);
+  console.log('binding:', binding);
+}
 </script>
 <style scoped lang="scss">
 $border: #ccc;

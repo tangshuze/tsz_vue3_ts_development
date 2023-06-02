@@ -20,7 +20,7 @@ export default defineConfig(({ command, mode }) => {
     plugins: [
       vue(),
       AutoImport({
-        imports:["vue"],
+        imports:["vue","vue-router"],
         dts: "src/auto-import.d.ts",
         resolvers: [ElementPlusResolver(), IconsResolver({
           prefix: 'Icon'
