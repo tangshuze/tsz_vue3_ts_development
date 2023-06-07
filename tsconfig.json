@@ -22,6 +22,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
     "jsx": "preserve",
     /* Linting */
     "strict": true,
@@ -42,7 +44,6 @@
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "Element-plus.d.ts",
     "env.d.ts",
     "src/mock/**/*.ts"],
   "references": [

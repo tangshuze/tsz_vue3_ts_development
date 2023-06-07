@@ -1,4 +1,5 @@
 import axios, { AxiosInstance, AxiosError, AxiosRequestConfig, AxiosResponse } from "axios"
+import ErrorCode from '@/utils/http/error_code'
 // response interface { code, msg, success }
 // 不含 data
 interface Result {
@@ -98,13 +99,13 @@ class Request {
   public handleCode = (code: number): void => {
     switch (code) {
       case 401:
-        ElMessage.error("登陆失败，请重新登录");
+        ElMessage.error(ErrorCode[401]);
         break;
       case 500:
-        ElMessage.error("请求异常，请联系管理员");
+        ElMessage.error(ErrorCode[500]);
         break;
       default:
-        ElMessage.error('请求失败');
+        ElMessage.error('网络错误');
         break;
     }
   }

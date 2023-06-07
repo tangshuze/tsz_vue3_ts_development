@@ -11,31 +11,25 @@
 </template>
 
 <script lang='ts' setup>
-import type { Directive } from 'vue'
-const color: Ref<string> = ref('123')
-const vMove: Directive = (el, binding) => {
-  console.log('el:', el);
-  console.log('binding:', binding);
+interface Person {
+  name: string,
+  age: number,
+  gender: string
 }
+class Student {
+  constructor(private info: Person) {}
+  getInfo<T extends keyof Person>(key: T): Person[T] {
+    return this.info[key];
+  }
+}
+const student = new Student({
+  name: 'uuuu',
+  age: 20,
+  gender: 'male'
+})
+const test = student.getInfo('name');
+console.log(test)
+
+
 </script>
-<style scoped lang="scss">
-$border: #ccc;
-
-.card {
-  border: 1px solid $border;
-  width: 400px;
-  background-color: v-bind(color);
-
-  header {
-    display: flex;
-    justify-content: space-between;
-    padding: 5px;
-    border-bottom: 1px solid $border;
-  }
-
-  section {
-    padding: 5px;
-    min-height: 300px;
-  }
-}
-</style>
+<style scoped lang="scss"></style>

@@ -7,17 +7,13 @@
  */
 import Editor from 'wangeditor'
 import AnimationButton from './AnimationButton'
-
 type EmitUpdate = (event: 'update:modelValue', value: string) => void
-interface EditorConfig {
-  [key: string]: string | number | undefined | null | void
-}
 export const initEditor = (
   container: HTMLDivElement,
   { emit, props }: { emit: EmitUpdate; props: Readonly<{ menus?: string[]; modelValue?: string; excludeMenu?: string[]; config?: any }> },
 ) => {
   const editor = new Editor(container)
-
+  
   editor.menus.extend(AnimationButton.key, AnimationButton)
 
   editor.config.menus = props?.menus || [

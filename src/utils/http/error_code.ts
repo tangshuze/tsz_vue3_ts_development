@@ -13,5 +13,4 @@ const ERROR_CODES = {
   504: '网络超时，状态码:504',
   505: 'HTTP版本不支持该请求，状态码:505',
 }
-
 export default ERROR_CODES
