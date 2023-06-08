@@ -1,6 +1,5 @@
 <template>
   <div class="">
-    <P_a/>
   </div>
 </template>
 

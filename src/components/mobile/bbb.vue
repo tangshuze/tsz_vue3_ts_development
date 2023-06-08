@@ -1,7 +1,5 @@
 <template>
-  <div class="">
-    <P_a/>
-  </div>
+  <div class="">bbb</div>
 </template>
 
 <script lang="ts" setup>

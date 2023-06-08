@@ -22,9 +22,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
+    "jsx": "preserve",
     "jsxFactory": "h",
     "jsxFragmentFactory": "Fragment",
-    "jsx": "preserve",
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
@@ -45,6 +45,7 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "env.d.ts",
+    "config/*.d.ts",
     "src/mock/**/*.ts"],
   "references": [
     {

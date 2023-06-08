@@ -1,10 +1,8 @@
- 
- 
 type Props = {
     title:string
 }
  
-const renderDom = (props:Props) => {
+const index = (props:Props) => {
     return (
         <>
             <div>{props.title}</div>
@@ -17,4 +15,4 @@ const clickTap = () => {
     console.log('click');
 }
  
-export default renderDom
+export default index
