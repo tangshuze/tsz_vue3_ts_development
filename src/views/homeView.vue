@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <P_a/>
+    <Testtsx/>
   </div>
 </template>
 

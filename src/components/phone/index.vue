@@ -55,7 +55,7 @@ const footer = reactive<Footer<string>[]>([
 ])
 </script>
   
-<style lang="less">
+<style lang="scss" scoped>
  
 html,
 body,

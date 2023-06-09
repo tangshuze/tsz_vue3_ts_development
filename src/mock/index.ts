@@ -16,5 +16,5 @@ const mock: Array<MockMethod> = [
         }
     }
 ]
- 
+
 export default mock

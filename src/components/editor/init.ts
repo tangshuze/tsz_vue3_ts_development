@@ -81,7 +81,7 @@ export const initEditor = (
   editor.config.pasteIgnoreImg = true
   if (props.config) {
     for (const key in props.config) {
-      editor.config[key] = props.config[key]
+      (editor.config as any)[key] = props.config[key]
     }
   }
 

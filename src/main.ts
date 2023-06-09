@@ -13,14 +13,11 @@ import 'xe-utils'
 import 'vxe-table/lib/style.css'
 import SvgIcon from "@/components/SvgIcon/index.vue"
 import 'virtual:svg-icons-register'
-import 'animate.css';
+import 'animate.css'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
-console.log(import.meta.env);
-if(import.meta.env.VITE_USER_NODE_ENV === 'mock'){
-  console.log('进入mock了');
-  // mockRequest()
-}
+console.log(import.meta.env)
+
 const app = createApp(App as any)
 
 // app.config.globalProperties//全局属性
