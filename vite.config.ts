@@ -5,12 +5,13 @@ import AutoImport from "unplugin-auto-import/vite"
 import Components from 'unplugin-vue-components/vite'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import { ElementPlusResolver, AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
-// import { viteMockServe } from "vite-plugin-mock"
 import postcsspxtoviewport from "postcss-px-to-viewport-8-plugin"
 import vueJsx from '@vitejs/plugin-vue-jsx'
 
 import Icons from 'unplugin-icons/vite';
 import IconsResolver from 'unplugin-icons/resolver';
+
+import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 
 
 const autoImport = AutoImport({
@@ -49,21 +50,17 @@ export default defineConfig(({ command, mode }) => {
   loadEnv(mode, process.cwd());
   return {
     envPrefix: 'VITE_',
-    envDir: 'env',
+    envDir: path.resolve(__dirname,'env'),
     plugins: [
       vue(),
       autoImport,
       components,
       svgIcon,
+      vueSetupExtend(),
       Icons({
         autoInstall: true
       }),
       vueJsx(),
-      // viteMockServe({
-      //   // supportTs: false,
-      //   logger: false,
-      //   mockPath: "src/mock/"
-      // }),
       pxtovw
     ],
     resolve: {

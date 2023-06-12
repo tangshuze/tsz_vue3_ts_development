@@ -1,20 +1,15 @@
 import axios, { AxiosInstance, AxiosError, AxiosRequestConfig, AxiosResponse } from "axios"
 import ErrorCode from '@/utils/http/error_code'
-// response interface { code, msg, success }
-// 不含 data
 interface Result {
   code: number,
   success: boolean,
   msg: string
 }
-
-// request interface，包含 data
 interface ResultData<T = any> extends Result {
   data?: T
 }
-
 enum RequestEnums {
-  TIMEOUT = 10000, // 请求超时 request timeout
+  TIMEOUT = 5000, // 请求超时 request timeout
   FAIL = 500, // 服务器异常 server error
   LOGINTIMEOUT = 401, // 登录超时 login timeout
   SUCCESS = 200, // 请求成功 request successfully
@@ -22,10 +17,9 @@ enum RequestEnums {
 
 // axios 基础配置
 const config = {
-  // 默认地址，可以使用 process Node内置的，项目根目录下新建 .env.development
-  baseURL: process.env.VUE_APP_BASE_API as string,
-  timeout: RequestEnums.TIMEOUT as number, // 请求超时时间
-  withCredentials: true, // 跨越的时候允许携带凭证
+  baseURL: import.meta.env.VITE_PROXY_API as string,
+  timeout: RequestEnums.TIMEOUT as number, 
+  withCredentials: true, 
 }
 
 class Request {
@@ -37,7 +31,7 @@ class Request {
 
     /**
      * 请求拦截器
-     * request -> { 请求拦截器 } -> server
+     * @request -> { 请求拦截器 } -> server
      * 使用时修改对应令牌匹配字段
      */
     this.service.interceptors.request.use(
@@ -59,12 +53,12 @@ class Request {
 
     /**
      * 响应拦截器
-     * response -> { 响应拦截器 } -> client
+     * @response -> { 响应拦截器 } -> client
      * 响应体字段应进行更行
      */
     this.service.interceptors.response.use(
       (response: AxiosResponse) => {
-        const { data, config } = response;
+        const { data } = response;
         if (data.code === RequestEnums.LOGINTIMEOUT) {
           // 表示登录过期，需要重定向至登录页面
           ElMessageBox.alert("Session expired", "System info", {
@@ -85,7 +79,7 @@ class Request {
       (error: AxiosError) => {
         const { response } = error;
         if (response) {
-          this.handleCode(response.status);
+          (ErrorCode as any)[response.status];
         }
         if (!window.navigator.onLine) {
           ElMessage.error("网络连接失败，请检查网络");
@@ -96,26 +90,9 @@ class Request {
     )
   }
 
-  public handleCode = (code: number): void => {
-    switch (code) {
-      case 401:
-        ElMessage.error(ErrorCode[401]);
-        break;
-      case 500:
-        ElMessage.error(ErrorCode[500]);
-        break;
-      default:
-        ElMessage.error('网络错误');
-        break;
-    }
-  }
-
-
-  // 通用方法封装
   get<T>(url: string, params?: object): Promise<ResultData<T>> {
     return this.service.get(url, { params });
   }
-
   post<T>(url: string, params?: object): Promise<ResultData<T>> {
     return this.service.post(url, params);
   }
