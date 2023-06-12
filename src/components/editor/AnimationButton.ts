@@ -6,7 +6,6 @@
  * @FilePath: \vite+vue3+ts\src\components\editor\AnimationButton.ts
  */
 import Editor from 'wangeditor'
-import { ElMessageBox } from 'element-plus'
 const { BtnMenu, $ } = Editor
 
 const blockTags =

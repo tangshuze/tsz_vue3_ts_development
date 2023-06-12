@@ -1,8 +1,10 @@
 <template>
-  <Phone/>
+  <div class="">
+    
+  </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" setup name="login">
 
 </script>
 

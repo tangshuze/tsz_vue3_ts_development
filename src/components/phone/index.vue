@@ -1,24 +1,24 @@
 <template>
-  <div class="wraps">
-    <header class="header">
+  <div class="mobile_wraps">
+    <header class="mobile_header">
       <div>left</div>
       <div>中间</div>
       <div>right</div>
     </header>
  
-    <main class="main">
-      <div class="main-items" v-for="item in 100">
-        <div class="main-port">头像</div>
-        <div class="main-desc">
-          <div>小满{{item}}</div>
-          <div>你妈妈喊你回家穿丝袜啦</div>
+    <main class="mobile_main">
+      <div class="mobile_main-items" v-for="item in 100">
+        <div class="mobile_main-port">头像</div>
+        <div class="mobile_main-desc">
+          <div>xxx{{item}}</div>
+          <div>xxxxxxxxxxxxxxxx</div>
         </div>
       </div>
     </main>
  
  
-    <footer class="footer">
-      <div class="footer-items" v-for="item in footer">
+    <footer class="mobile_footer">
+      <div class="mobile_footer-items" v-for="item in footer">
         <div>{{ item.icon }}</div>
         <div>{{ item.text }}</div>
       </div>
@@ -28,7 +28,6 @@
 </template>
   
 <script setup lang='ts'>
-import { reactive } from 'vue';
  
 type Footer<T> = {
   icon: T,
@@ -65,14 +64,14 @@ body,
   font-size: 14px;
 }
  
-.wraps {
+.mobile_wraps {
   height: inherit;
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
  
-.header {
+.mobile_header {
   background-color: pink;
   display: flex;
   height: 30px;
@@ -93,7 +92,7 @@ body,
   }
 }
  
-.main {
+.mobile_main {
   flex: 1;
   overflow: auto;
  
@@ -120,7 +119,7 @@ body,
   }
 }
  
-.footer {
+.mobile_footer {
  
   border-top: 1px solid #ccc;
   display: grid;

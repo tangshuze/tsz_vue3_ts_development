@@ -2,7 +2,6 @@
   <div ref="editorRef"></div>
 </template>
 <script lang="ts" setup>
-import { onMounted, onUnmounted, ref } from 'vue'
 import Editor from 'wangeditor'
 import { initEditor } from './init'
 

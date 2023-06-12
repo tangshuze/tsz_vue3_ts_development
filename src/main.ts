@@ -15,6 +15,7 @@ import 'vxe-table/lib/style.css'
 import SvgIcon from "@/components/SvgIcon/index.vue"
 import 'virtual:svg-icons-register'
 import 'animate.css'
+import './rem.ts'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
 console.log(import.meta.env)
