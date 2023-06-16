@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@ant-design/icons-vue": "^6.1.0",
+    "@form-create/element-ui": "^3.1.21",
     "@vueuse/core": "^10.1.2",
     "@wangeditor/editor": "^5.1.23",
     "animate.css": "^4.1.1",

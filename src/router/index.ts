@@ -21,10 +21,10 @@ whiteRoutes.push({
 const router = createRouter({
   history: createWebHistory(), // history 模式则使用 createWebHistory()
   routes: whiteRoutes,
-  scrollBehavior(){
-    return{
-      left:0,
-      top:0
+  scrollBehavior() {
+    return {
+      left: 0,
+      top: 0
     }
   }
 });
