@@ -23,7 +23,7 @@
 const modules: any = import.meta.glob("./modules/**/*.ts", { eager: true });
 ```
 
-后续路由在 `modules`目录 下进行 `update`
+后续views一级路由无需配置 文件夹名与路由名相同
 
 页面级权限直接通过守卫进行元信息权限校验,菜单和按钮等小粒度权限通过字典或其他方式进行动态的`addRoutes`
 

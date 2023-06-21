@@ -2,16 +2,11 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
-
-// const modules: any = import.meta.glob("./modules/**/*.ts", { eager: true });
-const whiteList: any = import.meta.glob("./modules/whiteList/*.ts", { eager: true });   //白名单
-// const routes: Array<RouteRecordRaw> = [];
-// for (const key in modules) {
-//     routes.push(...modules[key].default);
-// }
+import routesList from './modules/test'
+const constant: any = import.meta.glob("./modules/constant/*.ts", { eager: true });
 const whiteRoutes: Array<RouteRecordRaw> = [];
-for (const key in whiteList) {
-  whiteRoutes.push(...whiteList[key].default);
+for (const key in constant) {
+  whiteRoutes.push(...constant[key].default);
 }
 whiteRoutes.push({
   path: '/:pathMath(.*)*',
@@ -28,12 +23,17 @@ const router = createRouter({
     }
   }
 });
-
+for (const key in routesList) {
+  router.addRoute({
+    name:routesList[key].name,
+    path:routesList[key].path,
+    component: (routesList[key]!.component as any).default
+  });
+}
 router.beforeEach(async (_to, _from, next) => {
   NProgress.start();
   next();
 });
-
 router.afterEach((_to) => {
   NProgress.done();
 });

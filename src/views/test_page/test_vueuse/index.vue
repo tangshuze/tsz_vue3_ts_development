@@ -1,5 +1,5 @@
 <template>
-  <div class="">tailwind</div>
+  <div class="">vueuse</div>
 </template>
 
 <script lang="ts" setup>
