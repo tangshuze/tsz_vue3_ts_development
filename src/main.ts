@@ -26,6 +26,7 @@ const app = createApp(App1 as any)
 const useTable = (app: App) => {
   app.use(VXETable)
 }
+
 // app.config.globalProperties//全局属性
 
 app.use(router)

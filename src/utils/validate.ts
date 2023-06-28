@@ -17,7 +17,7 @@ export function isExternal(path: string): boolean {
  * @param paramName 
  * @returns 
  */
-export const GetUrlParamValue = (url: string, paramName: string): string | undefined=>{
+export const GetUrlParamValue = (url: string, paramName: string): string | undefined => {
   if (paramName) {
     const regExp = new RegExp(`${paramName}=(?<${paramName}>[^&]+)&*`)
     const regExpMatchs = url.match(regExp)
