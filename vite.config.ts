@@ -1,56 +1,65 @@
-import { defineConfig, loadEnv } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import { defineConfig, loadEnv } from "vite";
+import vue from "@vitejs/plugin-vue";
 import path from "path";
-import AutoImport from "unplugin-auto-import/vite"
-import Components from 'unplugin-vue-components/vite'
-import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
-import { ElementPlusResolver, AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
-import postcsspxtoviewport from "postcss-px-to-viewport-8-plugin"
-import vueJsx from '@vitejs/plugin-vue-jsx'
+import AutoImport from "unplugin-auto-import/vite";
+import Components from "unplugin-vue-components/vite";
+import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
+import {
+  ElementPlusResolver,
+  AntDesignVueResolver,
+} from "unplugin-vue-components/resolvers";
+import postcsspxtoviewport from "postcss-px-to-viewport-8-plugin";
+import vueJsx from "@vitejs/plugin-vue-jsx";
 
-import Icons from 'unplugin-icons/vite';
-import IconsResolver from 'unplugin-icons/resolver';
+import Icons from "unplugin-icons/vite";
+import IconsResolver from "unplugin-icons/resolver";
 
-import vueSetupExtend from 'vite-plugin-vue-setup-extend'
-
+import vueSetupExtend from "vite-plugin-vue-setup-extend";
 
 const autoImport = AutoImport({
   include: [
     /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
-    /\.vue$/, /\.vue\?vue/, // .vue
+    /\.vue$/,
+    /\.vue\?vue/, // .vue
   ],
   imports: ["vue", "vue-router"],
-  dts: "/config/auto-import.d.ts",
-  resolvers: [ElementPlusResolver(), IconsResolver({
-    prefix: 'Icon'
-  }), AntDesignVueResolver()],
-  eslintrc: { enabled: true },
-})
-const components = Components({
-  dts: "/config/components.d.ts",
-  extensions: ['vue', 'jsx', 'tsx', 'ts', 'js'],
-  resolvers: [ElementPlusResolver(),
-  IconsResolver({
-    enabledCollections: ['ep']
-  }), AntDesignVueResolver({
-    importStyle: true,
-    resolveIcons: true
-  })
+  dts: "./config/auto-import.d.ts",
+  resolvers: [
+    ElementPlusResolver(),
+    IconsResolver({
+      prefix: "Icon",
+    }),
+    AntDesignVueResolver(),
   ],
-})
+  eslintrc: { enabled: true },
+});
+const components = Components({
+  dts: "./config/components.d.ts",
+  extensions: ["vue", "jsx", "tsx", "ts", "js"],
+  resolvers: [
+    ElementPlusResolver(),
+    IconsResolver({
+      enabledCollections: ["ep"],
+    }),
+    AntDesignVueResolver({
+      importStyle: true,
+      resolveIcons: true,
+    }),
+  ],
+});
 const svgIcon = createSvgIconsPlugin({
-  iconDirs: [path.resolve(__dirname, 'src/assets/icons/')],
-  symbolId: 'icon-[name]'
-})
+  iconDirs: [path.resolve(__dirname, "src/assets/icons/")],
+  symbolId: "icon-[name]",
+});
 const pxtovw = postcsspxtoviewport({
-  unitToConvert: 'px', // 要转化的单位
+  unitToConvert: "px", // 要转化的单位
   viewportWidth: 320, // UI设计稿的宽度
-})
+});
 export default defineConfig(({ command, mode }) => {
   loadEnv(mode, process.cwd());
   return {
-    envPrefix: 'VITE_',
-    envDir: path.resolve(__dirname,'env'),
+    envPrefix: "VITE_",
+    envDir: path.resolve(__dirname, "env"),
     plugins: [
       vue(),
       autoImport,
@@ -58,23 +67,23 @@ export default defineConfig(({ command, mode }) => {
       svgIcon,
       vueSetupExtend(),
       Icons({
-        autoInstall: true
+        autoInstall: true,
       }),
       vueJsx(),
-      pxtovw
+      pxtovw,
     ],
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),
-        '~': path.resolve(__dirname, './'),
-      }
+        "~": path.resolve(__dirname, "./"),
+      },
     },
     define: {
-      'process.env': {}
+      "process.env": {},
     },
     server: {
-      open: '/',
-      host: '0.0.0.0',   //本地地址：localhost或者其他
+      open: "/",
+      host: "0.0.0.0", //本地地址：localhost或者其他
       https: false,
       // proxy: {           //代理
       //   '/test': {
@@ -95,6 +104,6 @@ export default defineConfig(({ command, mode }) => {
           drop_debugger: true,
         },
       },
-    }
-  }
-})
+    },
+  };
+});

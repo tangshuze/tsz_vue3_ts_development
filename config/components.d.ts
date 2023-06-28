@@ -9,6 +9,15 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-
+    AnimationButton: typeof import('./../src/components/editor/AnimationButton.ts')['default']
+    Editor: typeof import('./../src/components/editor/Editor.vue')['default']
+    Init: typeof import('./../src/components/editor/init.ts')['default']
+    Mobile: typeof import('./../src/components/mobile/index.vue')['default']
+    P_a: typeof import('./../src/components/p_a/index.vue')['default']
+    Phone: typeof import('./../src/components/phone/index.vue')['default']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
+    SvgIcon: typeof import('./../src/components/SvgIcon/index.vue')['default']
+    TestAuto: typeof import('./../src/components/TestAuto/index.vue')['default']
   }
 }
